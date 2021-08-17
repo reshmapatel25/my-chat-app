@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../model/user';
 import { RegisterService } from '../service/register.service';
  
@@ -14,8 +15,10 @@ export class RegisterComponent implements OnInit {
   lastName:string;
   email:string;
   password:string;
+
   
-  constructor(private registerService:RegisterService) { }
+  
+  constructor(private registerService:RegisterService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -26,9 +29,13 @@ export class RegisterComponent implements OnInit {
      user.lastName = this.lastName;
      user.email=this.email
      user.password=this.password;
+     
      this.registerService.register(user).subscribe(data=>{
        console.log(data);
-     });
+     },
+     data => {
+      this.router.navigate(['/login']);
+      });
 
   }
 

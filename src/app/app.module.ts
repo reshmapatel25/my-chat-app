@@ -4,8 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChatComponent } from './chat/chat.component';
@@ -15,9 +14,7 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeDetailComponent,
     DashboardComponent,
-    RecipeSearchComponent,
     ChatComponent,
     LoginComponent,
     RegisterComponent
