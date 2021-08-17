@@ -1,18 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ChatComponent } from './chat/chat.component';
+import {BasicAuthHtppInterceptorService} from './service/auth-interceptor';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component'; 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RecipeDetailComponent,
+    DashboardComponent,
+    RecipeSearchComponent,
+    ChatComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
+    
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:BasicAuthHtppInterceptorService,multi:true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
