@@ -16,7 +16,7 @@ export class ChatComponent implements OnInit {
   description = 'Angular-WebSocket-Spring-Stomp-SockJS';
   private stompClient = null;
   greetings: string[] = [];
-  userlist: User[] = [];
+  userlist: string[] = [];
   disabled = true;
   name: string;
   user:string;
